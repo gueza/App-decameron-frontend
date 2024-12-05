@@ -1,1 +1,32 @@
-<p>room-detail works!</p>
+<div class="container mt-5">
+  <h2>Detail Room</h2>
+
+  <div class="row mt-3">
+    <div class="col">
+      <button type="submit" class="btn btn-success" (click)="newRoom()">New Room</button>
+    </div>
+  </div>
+
+  <div class="container mt-5">
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">Room type</th>
+          <th scope="col">Accommodation</th>
+          <th scope="col">Quantity</th>
+          <th scope="col">Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let room of roomsList">
+          <td>{{ room.room_type.rty_name }}</td>
+          <td>{{ room.accommodation.acc_name }}</td>
+          <td>{{ room.roo_quantity }}</td>
+          <td>
+            <button type="submit" class="btn btn-warning" (click)="updateRoom(room)">Edit</button>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+</div>

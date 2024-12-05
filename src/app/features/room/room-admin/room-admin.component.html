@@ -1,0 +1,45 @@
+<div class="container">
+  <h1>Admin</h1>
+
+  <div class="row">
+    <div class="col">
+      <button type="submit" class="btn btn-info" (click)="goBack()">Back</button>
+    </div>
+  </div>
+
+  <div class="row justify-content-center">
+    <div class="col-6">
+      <form [formGroup]="formRoom">
+        <div class="form-group">
+          <label for="roomtype">Room Type</label>
+          <select id="roomtype" formControlName="roomtype" class="form-control custom-select" (change)="onchangeRoomType()">
+            <option selected [value]="''">Choose room type</option>
+            <option *ngFor="let room of roomTypeList" [value]="room.rty_id">
+                {{ room.rty_name }}
+            </option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="accommodation">Accommodation</label>
+          <select id="accommodation" formControlName="accommodation" class="form-control custom-select">
+            <option selected [value]="''">Choose accommodation</option>
+            <option *ngFor="let accommodation of accommodationList" [value]="accommodation.acc_id">
+                {{ accommodation.acc_name }}
+            </option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="quantity">Quantity:</label>
+          <input type="number" id="quantity" formControlName="quantity" class="form-control" />
+        </div>
+
+        <div class="text-center mt-4">
+          <button type="submit" class="btn btn-success" *ngIf="type == 2" (click)="saveRoom()" [disabled]="formRoom.invalid">Save</button>
+            <button type="submit" class="btn btn-success" *ngIf="type == 1" (click)="updateRoom()" [disabled]="formRoom.invalid">Update</button>
+        </div>
+        </form>
+    </div>
+  </div>
+</div>
