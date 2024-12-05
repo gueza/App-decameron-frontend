@@ -1,0 +1,10 @@
+  - type: web
+    name: decameron-hote-fronted
+    env: static
+    buildCommand: "npm install && ng build --prod"
+    startCommand: "ng serve"
+    staticSite:
+      directory: "dist/decameron-hotel-fronted"  # Esta es la ruta donde Angular coloca los archivos estáticos
+    envVars:
+      - key: NODE_ENV
+        value: production
